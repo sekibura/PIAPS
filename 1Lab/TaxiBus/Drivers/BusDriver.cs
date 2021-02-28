@@ -4,10 +4,12 @@ using System.Text;
 
 namespace TaxiBus.Drivers
 {
-    class BusDriver:IDriver
+    class BusDriver:Driver
     {
-        public string Name { get; }
-        public string Category { get; }
-        public int Experience { get; }
+        public BusDriver()
+        {
+            name = "Иван Иванов";
+            cathegory = "D";
+        }
     }
 }

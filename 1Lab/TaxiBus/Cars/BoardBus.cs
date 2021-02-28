@@ -1,28 +1,24 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using TaxiBus.Drivers;
 
 namespace TaxiBus.Cars
 {
-    class BoardBus:IBoardAnyCar
-    {
-        public int NumberOfSeats { get; }
-        public string LicensePlate { get; }
-
-        public void AddDriver() 
-        { 
-
-        }
+    class BoardBus:BoardAnyCar
+    { 
+        public BoardBus() : base("dhjhj", 30, "D") { }
+        public override void SetDriver(Driver driver)
+        {
+            if(driver is BusDriver)
+            {
+                this.driver = driver;
+            }
+            else
+            {
+                Console.WriteLine("НЕ ТОТ ВОДИТЕЛЬ");
+            }
             
-
-        public void AddPassanger()
-        {
-
-        }
-
-        public void StartTrip()
-        {
-
         }
     }
 }

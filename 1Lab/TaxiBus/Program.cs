@@ -1,4 +1,6 @@
 ﻿using System;
+using TaxiBus.Cars;
+using TaxiBus.ConcreteFactory;
 
 namespace TaxiBus
 {
@@ -12,8 +14,18 @@ namespace TaxiBus
 
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
 
+            LandingZone landingZone = new LandingZone();
+            BusFabric busFabric = new BusFabric();
+            TaxiFabric taxiFabric = new TaxiFabric();
+
+
+
+            BoardAnyCar boardBus = landingZone.CreateCar(busFabric);
+            BoardAnyCar boardTaxi = landingZone.CreateCar(taxiFabric);
+
+            boardBus.info();
+            boardTaxi.info();
 
         }
     }
