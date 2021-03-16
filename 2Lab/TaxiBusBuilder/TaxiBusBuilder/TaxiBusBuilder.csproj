@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{F3D4FCA0-1742-4473-9607-AB5D37487E18}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>TaxiBusBuilder</RootNamespace>
+    <AssemblyName>TaxiBusBuilder</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BoardType.cs" />
+    <Compile Include="Builders\BoardBuilder.cs" />
+    <Compile Include="Builders\DriverBuilder.cs" />
+    <Compile Include="Builders\PasBuilder.cs" />
+    <Compile Include="ConcreteBuilders\BusBoardBuilder.cs" />
+    <Compile Include="ConcreteBuilders\BusDriverBuilder.cs" />
+    <Compile Include="ConcreteBuilders\BusPasBuilder.cs" />
+    <Compile Include="ConcreteBuilders\TaxiBoardBuilder.cs" />
+    <Compile Include="ConcreteBuilders\TaxiDriverBuilder.cs" />
+    <Compile Include="ConcreteBuilders\TaxiPasBuilder.cs" />
+    <Compile Include="Directors\BoardDirector.cs" />
+    <Compile Include="Directors\DriverDirector.cs" />
+    <Compile Include="Directors\PassangerDirector.cs" />
+    <Compile Include="Products\Board.cs" />
+    <Compile Include="PassangerCategory.cs" />
+    <Compile Include="Products\Driver.cs" />
+    <Compile Include="Products\Passanger.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
