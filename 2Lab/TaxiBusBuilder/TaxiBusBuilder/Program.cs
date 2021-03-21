@@ -17,6 +17,7 @@ namespace TaxiBusBuilder
             boardDirector.Builder = busBoardBuilder;
             Board Bus = boardDirector.BuildBoard();
             Console.WriteLine(Bus.ToString());
+            Bus.StartTrip();
             Console.ReadLine();
 
         }

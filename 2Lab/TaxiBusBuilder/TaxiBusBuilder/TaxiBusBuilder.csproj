@@ -56,8 +56,12 @@
     <Compile Include="Directors\BoardDirector.cs" />
     <Compile Include="Directors\DriverDirector.cs" />
     <Compile Include="Directors\PassangerDirector.cs" />
+    <Compile Include="PasCategory\BusPassanger.cs" />
+    <Compile Include="PasCategory\PassangerCategory.cs" />
+    <Compile Include="PasCategory\TaxiPassanger.cs" />
+    <Compile Include="PasCategory\TypesBusPas.cs" />
+    <Compile Include="PasCategory\TypesTaxiPas.cs" />
     <Compile Include="Products\Board.cs" />
-    <Compile Include="PassangerCategory.cs" />
     <Compile Include="Products\Driver.cs" />
     <Compile Include="Products\Passanger.cs" />
     <Compile Include="Program.cs" />

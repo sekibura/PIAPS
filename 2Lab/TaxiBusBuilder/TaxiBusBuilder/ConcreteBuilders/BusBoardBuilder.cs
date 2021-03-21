@@ -17,7 +17,15 @@ namespace TaxiBusBuilder.ConcreteBuilders
             DriverDirector director = new DriverDirector();
             BusDriverBuilder busDriverBuilder = new BusDriverBuilder();
             director.Builder = busDriverBuilder;
-            board.Driver= director.BuildDriver();
+            if (board.Driver==null)
+            {
+                board.Driver = director.BuildDriver();
+            }
+            else
+            {
+                Console.WriteLine("Водительское место уже занято!");
+            }
+            
 
         }
 

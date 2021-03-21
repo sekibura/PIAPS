@@ -12,7 +12,7 @@ namespace TaxiBusBuilder
         public List<Passanger> passangers = new List<Passanger>();
         public BoardType Type { get; set; }
         public int SeatsNumber{ get; set; }
-        public Driver Driver { get; set; }
+        public Driver Driver { get; set; } = null;
 
         public void StartTrip()
         {
@@ -27,6 +27,20 @@ namespace TaxiBusBuilder
         }
         private bool isReadyForTrip()
         {
+            if(passangers.Count< SeatsNumber)
+            {
+                Console.WriteLine("Остались пустые места");
+            }
+            else if(passangers.Count > SeatsNumber)
+            {
+                Console.WriteLine("Количество пассажиров превышает количество мест!");
+            }
+
+            if(Driver == null)
+            {
+                Console.WriteLine("Нет водителя");
+            }
+            
             return (passangers.Count == SeatsNumber) && (Driver != null);
         }
 

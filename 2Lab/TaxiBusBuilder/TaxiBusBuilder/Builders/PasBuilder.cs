@@ -17,10 +17,14 @@ namespace TaxiBusBuilder.Builders
 
         public abstract void BuildName();
         public abstract void BuildCategory();
+        public abstract void BuildPrice();
+        public abstract void BuildAge();
+        public abstract void BuildOptions();
         public Passanger GetPassanger()
         {
             return passanger;
         }
+
         
     }
 }
