@@ -1,0 +1,189 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="FullSignature">
+  <Class Name="TaxiBusBuilder.Board">
+    <Position X="26.75" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAABAAAAAAAAEAAAAAAAAEAAAgAAAAUAEAAAAAAA=</HashCode>
+      <FileName>Products\Board.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Driver" />
+      <Property Name="Type" />
+    </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Field Name="passangers" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="TaxiBusBuilder.Passanger">
+    <Position X="17.5" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAEAEAAgAQAAAAAAAAAAAAAAABACAA=</HashCode>
+      <FileName>Products\Passanger.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Category" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="TaxiBusBuilder.Program">
+    <Position X="25.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>Program.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TaxiBusBuilder.Builders.BoardBuilder">
+    <Position X="29.5" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAgAAAAAAAAgAAAAAAAAIAAAAEIgAAAAAAIAA=</HashCode>
+      <FileName>Builders\BoardBuilder.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="board" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="TaxiBusBuilder.Builders.DriverBuilder">
+    <Position X="19.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAgCAAAACAAAAAAAAAIgAAAA=</HashCode>
+      <FileName>Builders\DriverBuilder.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="driver" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="TaxiBusBuilder.Builders.PasBuilder">
+    <Position X="14.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAIAAAAgAAAAAAgAAAIAAAACAAgAABAAAAAA=</HashCode>
+      <FileName>Builders\PasBuilder.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="passanger" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="TaxiBusBuilder.ConcreteBuilders.BusBoardBuilder">
+    <Position X="29" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAgAAAAAAAAIAAAQEAAAAAAAAIAA=</HashCode>
+      <FileName>ConcreteBuilders\BusBoardBuilder.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TaxiBusBuilder.ConcreteBuilders.BusDriverBuilder">
+    <Position X="20.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAgAAAAACAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ConcreteBuilders\BusDriverBuilder.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TaxiBusBuilder.ConcreteBuilders.TaxiBoardBuilder">
+    <Position X="30.75" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAgAAAAAAAAIAAAQEAAAAAAAAIAA=</HashCode>
+      <FileName>ConcreteBuilders\TaxiBoardBuilder.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TaxiBusBuilder.ConcreteBuilders.TaxiDriverBuilder">
+    <Position X="18.75" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAgAAAAACAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ConcreteBuilders\TaxiDriverBuilder.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TaxiBusBuilder.ConcreteBuilder.BusPasBuilder">
+    <Position X="13.5" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAgAAAAAAgAAAIAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>ConcreteBuilders\BusPasBuilder.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TaxiBusBuilder.ConcreteBuilder.TaxiPasBuilder">
+    <Position X="15.5" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAgAAAAAAgAAAIAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>ConcreteBuilders\TaxiPasBuilder.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TaxiBusBuilder.Directors.BoardDirector">
+    <Position X="31.75" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAgAA=</HashCode>
+      <FileName>Directors\BoardDirector.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Builder" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="TaxiBusBuilder.Directors.DriverDirector">
+    <Position X="25.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAgAAAIAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Directors\DriverDirector.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Builder" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="TaxiBusBuilder.Directors.PassangerDirector">
+    <Position X="17" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAIAA=</HashCode>
+      <FileName>Directors\PassangerDirector.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Builder" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="TaxiBusBuilder.PasCategory.BusPassanger">
+    <Position X="9.75" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>PasCategory\BusPassanger.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TaxiBusBuilder.PasCategory.PassangerCategory">
+    <Position X="11" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAQAAAAAAEAAAAAAAAAAAAAAAAQAAAAAAAAA=</HashCode>
+      <FileName>PasCategory\PassangerCategory.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TaxiBusBuilder.PasCategory.TaxiPassanger">
+    <Position X="11.5" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>PasCategory\TaxiPassanger.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TaxiBusBuilder.Products.Driver">
+    <Position X="23.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAEAAAAAAUAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Products\Driver.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="LicenseCategory" />
+    </ShowAsAssociation>
+  </Class>
+  <Enum Name="TaxiBusBuilder.BoardType">
+    <Position X="21.75" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAA=</HashCode>
+      <FileName>BoardType.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="TaxiBusBuilder.PasCategory.TypesBusPas">
+    <Position X="23.5" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAACAAAAAAAAAAAEAAAAAAAAAAgA=</HashCode>
+      <FileName>PasCategory\TypesBusPas.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="TaxiBusBuilder.PasCategory.TypesTaxiPas">
+    <Position X="25.25" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAgA=</HashCode>
+      <FileName>PasCategory\TypesTaxiPas.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
