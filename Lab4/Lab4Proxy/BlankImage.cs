@@ -9,19 +9,31 @@ namespace Lab4Proxy
 {
     class BlankImage : IImage
     {
-        public string Path { get; set; }
+        private string _path;
         private Point position = new Point();
         private RealImage _realImage;
+        private bool _havePicture;
 
         public BlankImage(RealImage realImage)
         {
             _realImage = realImage;
         }
 
+        public void SetPath(string value)
+        {
+            _path = value;
+            _realImage.SetPath(value);
+        }
+
+        public string GetPath()
+        {
+            return _path;
+        }
+
         public Size GetSize()
         {
-            if (!String.IsNullOrEmpty(Path))
-                return GetImageSize(Path);
+            if (!String.IsNullOrEmpty(_path))
+                return GetImageSize(_path);
             
             return new Size(0,0);
         }
@@ -62,7 +74,13 @@ namespace Lab4Proxy
             else if(button == MouseButtons.Right)
             {
                 _realImage.DrawImage(g, button);
+                _havePicture = true;
             }
+        }
+
+        public bool IsHavePucture()
+        {
+            return _havePicture;
         }
     }
 }

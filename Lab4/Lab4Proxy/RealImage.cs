@@ -9,13 +9,14 @@ namespace Lab4Proxy
 {
     class RealImage : IImage
     {
-        public string Path { get; set; }
+        private string _path = "";
+        private Point _position;
        
 
         public Size GetSize()
         {
-            if (!String.IsNullOrEmpty(Path))
-                return GetImageSize(Path);
+            if (!String.IsNullOrEmpty(_path))
+                return GetImageSize(_path);
 
             return new Size(0, 0);
         }
@@ -38,25 +39,33 @@ namespace Lab4Proxy
 
         public Point GetPosition()
         {
-            throw new NotImplementedException();
+            return _position;
         }
 
 
 
         public void SetPosition(Point point)
         {
-            throw new NotImplementedException();
+            _position = point;
         }
 
         public void DrawImage(Graphics g, MouseButtons button)
         {
-            using (Image sourceImage = Image.FromFile(Path))
+            using (Image sourceImage = Image.FromFile(_path))
             {
                 Rectangle rectangle = new Rectangle(GetPosition(), GetSize());
                 g.DrawImage(sourceImage, rectangle);
             }
         }
 
-  
+        public void SetPath(string value)
+        {
+            _path = value;
+        }
+
+        public string GetPath()
+        {
+            return _path;
+        }
     }
 }

@@ -14,7 +14,8 @@ namespace Lab4Proxy
 
         public Size GetSize();
 
-        public string Path { get; set; }
+        public string GetPath();
+        public void SetPath(string value);
 
         public void DrawImage(Graphics g, MouseButtons button);
 

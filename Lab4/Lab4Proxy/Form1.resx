@@ -67,4 +67,32 @@
         AAAAAElFTkSuQmCC
 </value>
   </data>
+  <data name="btnMoveMouse.Image" type="System.Drawing.Bitmap, System.Drawing.Common" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAL1SURBVFhHtZdZqE1RHIcPETKLIlOREjKmZHzwwIvpwSuJ
+        PIgHeaCUREryokimkheJpLxQhgeS4cE8JGRMxsyZ+b599j/7nrvPce695371dfb6n333/t291l5rnQJs
+        wJYe1JhuuKt4WJkfeBjbJ63asR//4MKkVQEDeOIV7GuhBsxGr6kfcSCWJQLoMxyDTaEHvsC4pp7Cst2c
+        DaAmnoWNZTpuxPfo9a6m7UGYSwS4gT/T41+4AhtCJ+xXPEx4iF5rT9IqMgxbFA//EQHW4TR8l7Z1N7bG
+        /zER72H2yeUF2IfHsc5YywaQ4fgII8QJ7IJ5+OZsxd/oucdwR6pdae1OpnY3rflPLsCE0gDSEy+gdb2N
+        pSO5A9ptcU5j3I65AaQdHsQ4+RVOwixD8BLGOc/xfmpc90OmFk9F7d7OWDaAOGDWYjzibzgPs7TCleh3
+        1YwBQ85MWimVAgTz0Rt4nmHWY+loHpka5AWYg/XGUzUBZDK+Rs/VA2g3lTIW5+JL9DwnIdv9MZdqA4gD
+        8RZGiPPogM3iU4inFT7AjphLQwJIVzyJcfGnOAqzrMH43kltCpaloQHEgbcN4yaO7hkY+P1F9LvNFipR
+        TYAl6Hxe6hOMEE7jyzAYipcxb5zUoVyAXumnLMW40f90ZvQJSFV7jLwAffAxjk5ahUJb9P0tvVk5ne+T
+        SaYaSgP4h9fQmruaYDXGDVy0akY2gP11Jm2r/RrruMFipTxtoVZEADenh9LjrDsx2IRRH2+hFkSAt+mn
+        ugQfTY+/Ym8UB6Zt60cs1IIIENr/ztdOqVHLvsuu69ZcE9zhNJlsAN9r34DAJ2H9E3a3AAMwtm57LTSV
+        COBCM9hChqkY4ZxeAxcia9+x7CJTLQb4ghOSVn3OoTd7g+6CZATGHmGLhabgoKq0DXcNj6ew3AK4A479
+        3WeM7mkUi9LPcviD4iZ6M8eIa0B256yrsFlxR5S9YXgdF2MbbFb8bRBbLD2LLr/1fmQ0Jy7J/ooel7Rq
+        QqHwFz+hOpVvC9o0AAAAAElFTkSuQmCC
+</value>
+  </data>
+  <data name="btnCreateMouse.Image" type="System.Drawing.Bitmap, System.Drawing.Common" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACYSURBVDhPpZMxCoNAEEW3zH1iksZSg7lAiiTgFey8hF3O
+        4R39T0ZhqmWYD8+B3f9QYbcoq5jFX9xZqIQOXRzcMvFQGtGKUTzER7zEIL4CkT06dMnuLuIqfoLNWujQ
+        xcHdFzrjwkIldI7++cK3zUicc7MZiXPSX/C0GYlzepuROCf9C8fBiMQ5nLRoTid9kNJHOX2ZEte5rBtG
+        bh1F737ENgAAAABJRU5ErkJggg==
+</value>
+  </data>
 </root>

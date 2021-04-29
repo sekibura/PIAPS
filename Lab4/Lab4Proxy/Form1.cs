@@ -15,21 +15,27 @@ namespace Lab4Proxy
 {
     public partial class Form1 : Form
     {
-        private BlankImage _proxyImage = new BlankImage();
-        private List<Rectangle> _rectangles = new List<Rectangle>();
-        private List<KeyValuePair<Image, Rectangle>> _images = new List<KeyValuePair<Image, Rectangle>>();
+        //private RealImage _realImage = new RealImage();
+        //private BlankImage _proxyImage;
+        private string _path = "";
+
+        //private List<Rectangle> _rectangles = new List<Rectangle>();
+        //private List<KeyValuePair<Image, Rectangle>> _images = new List<KeyValuePair<Image, Rectangle>>();
+
+        private List<BlankImage> _images = new List<BlankImage>();
+
+        private WorkMode _workMode = WorkMode.CreateRectangle;
+
         Graphics g;
+
+        private bool _inMoving;
+        private BlankImage _movableImage;
+
         public Form1()
         {
             InitializeComponent();
+            g = panel1.CreateGraphics();
         }
-
-        private void toolStripButton1_Click(object sender, EventArgs e)
-        {
-            string _imagePath = OpenFileDioalogFunc();
-            _proxyImage.Path=_imagePath;
-        }
-
      
         private string OpenFileDioalogFunc()
         {
@@ -42,10 +48,7 @@ namespace Lab4Proxy
                 openFileDialog.RestoreDirectory = true;
                 openFileDialog.Filter = "Image Files| *.jpg; *.jpeg; *.png";
                 if (openFileDialog.ShowDialog() == DialogResult.OK)
-                {
-
                     filePath = openFileDialog.FileName;
-                }
             }
             return filePath;
         }
@@ -53,71 +56,117 @@ namespace Lab4Proxy
         private void panel1_Click(object sender, EventArgs e)
         {
             MouseEventArgs me = (MouseEventArgs)e;
-            if (_proxyImage.Path != null && me.Button==MouseButtons.Left)
+            if (_path != null && me.Button == MouseButtons.Left && _workMode == WorkMode.CreateRectangle)
+                CreateImage(me, panel1);
+        }
+
+        private void MoveFigure(Point mousePosition)
+        {
+            if (_movableImage == null)
             {
-                AddRect();
-                //DrawAll();
+                for (int i = _images.Count - 1; i >= 0; i--)
+                {
+                    if (IsPointInsideRect(_images[i], mousePosition))
+                    {
+                        _movableImage = _images[i];
+                        break;
+                    }
+                }
+            }
+            else
+            {
+                Point delta = new Point(mousePosition.X - _movableImage.GetPosition().X, mousePosition.Y - _movableImage.GetPosition().Y);
+                Point newPosition = _movableImage.GetPosition();
+                newPosition.Offset(delta);
+                _movableImage.SetPosition(newPosition);
+                DrawAll();
+            }
+
+        }
+
+        private void CreateImage(MouseEventArgs mouse, Panel panel)
+        {
+            RealImage realImage = new RealImage();
+            BlankImage blankImage = new BlankImage(realImage);
+
+            blankImage.SetPath(_path);
+            blankImage.SetPosition(panel.PointToClient(Cursor.Position));
+            g = panel.CreateGraphics();
+            blankImage.DrawImage(g, mouse.Button);
+            _images.Add(blankImage);
+        }
+
+
+        private void DrawAll()
+        {
+            g.Clear(Color.White);
+            g = panel1.CreateGraphics();
+            Pen pen = new Pen(Color.Red, 1f);
+            foreach (BlankImage image in _images)
+            {
+                image.DrawImage(g, MouseButtons.Left);
+                if (image.IsHavePucture())
+                    image.DrawImage(g, MouseButtons.Right);
             }
         }
-
-        private void AddRect()
-        {
-            g = panel1.CreateGraphics();
-            Rectangle rectangle = new Rectangle(panel1.PointToClient(Cursor.Position), _proxyImage.GetSize());
-            Pen pen = new Pen(Color.Red, 3f);
-            _rectangles.Add(rectangle);
-            g.DrawRectangle(pen, rectangle);
-        }
-
-        //private void DrawAll()
-        //{
-        //    g = panel1.CreateGraphics();
-        //    Pen pen = new Pen(Color.Red, 1f);
-        //    foreach (Rectangle rectangle in _rectangles)
-        //        g.DrawRectangle(pen, rectangle);
-
-        //    foreach(KeyValuePair<Image,Rectangle> image in _images)
-        //        g.DrawImage(image.Key, image.Value);
-        //}
 
         private void panel1_MouseDoubleClick(object sender, MouseEventArgs e)
         {
             Debug.WriteLine("Db clck");
-            if (_proxyImage.Path != null && e.Button == MouseButtons.Right)
+            if (_path != null && e.Button == MouseButtons.Right)
             {
-                FillRectImage(panel1.PointToClient(Cursor.Position));
-                //DrawAll();
-            }
-        }
-
-        private void FillRectImage(Point point)
-        {
-            foreach (Rectangle rectangle in _rectangles)
-            {
-                if (IsPointInsideRect(rectangle, point))
+                Point mousePos = panel1.PointToClient(Cursor.Position);
+                foreach (BlankImage image in _images)
                 {
-                    Debug.WriteLine("Inside");
-                    Image img;
-                    using (Image sourceImage = Image.FromFile(_proxyImage.Path))
+                    if (IsPointInsideRect(image, mousePos))
                     {
-                        Point picPoint = new Point(rectangle.X, rectangle.Y);
-                        img = sourceImage;
-                        //_images.Add(new KeyValuePair<Image, Rectangle>(Image.FromFile(_proxyImage.Path), rectangle));
-                        g.DrawImage(sourceImage, rectangle);
+                        g = panel1.CreateGraphics();
+                        image.DrawImage(g, e.Button);
                     }
-                    
-                }
-                else
-                {
-                    Debug.WriteLine("Outside");
                 }
             }
         }
 
-        private bool IsPointInsideRect(Rectangle rectangle, Point point)
+        private bool IsPointInsideRect(BlankImage image, Point point)
         {
-            return rectangle.Location.X <= point.X && rectangle.Location.Y <= point.Y && rectangle.Location.X + rectangle.Width >= point.X && rectangle.Location.Y + rectangle.Height >= point.Y;
-              
+            return image.GetPosition().X <= point.X && image.GetPosition().Y <= point.Y && image.GetPosition().X + image.GetSize().Width >= point.X && image.GetPosition().Y + image.GetSize().Height>= point.Y;
+        }
+
+        private void btnCreateMouse_Click(object sender, EventArgs e)
+        {
+            this.Cursor = Cursors.Arrow;
+            _workMode = WorkMode.CreateRectangle;
+        }
+
+        private void btnMoveMouse_Click(object sender, EventArgs e)
+        {
+            this.Cursor = Cursors.NoMove2D;
+            _workMode = WorkMode.Move;
+        }
+        private void toolStripButton1_Click(object sender, EventArgs e)
+        {
+            string _imagePath = OpenFileDioalogFunc();
+            _path = _imagePath;
+        }
+
+        private void panel1_MouseDown(object sender, MouseEventArgs e)
+        {
+            MouseEventArgs me = (MouseEventArgs)e;
+            if (_path != null && me.Button == MouseButtons.Left && _workMode==WorkMode.Move)
+                _inMoving = true;
+        }
+
+        private void panel1_MouseUp(object sender, MouseEventArgs e)
+        {
+            _inMoving = false;
+            _movableImage = null;
+        }
+
+        private void panel1_MouseMove(object sender, MouseEventArgs e)
+        {
+            MouseEventArgs me = (MouseEventArgs)e;
+            if (_path != null && me.Button == MouseButtons.Left && _workMode == WorkMode.Move && _inMoving)
+                MoveFigure(panel1.PointToClient(Cursor.Position));
         }
     }
 
