@@ -9,8 +9,10 @@ namespace Lab3
 //Бесплатно к провозу багажа допускается 35 кг - бизнес класс, 20 кг - эконом и без ограничения - первый класс.
 //Примитивный объект – пассажир, пилот стюардесса. Составной объект – Первый, бизнес и эконом классы.
 //Пилоты и стюардессы не могут иметь багажа.
+
 //Есть максимальная допустимая загрузка самолета багажом. При превышении – багаж снимается с рейса.
 //Снять багаж можно только у пассажиров эконом класса.
+
 //В результате работы программ должна быть создана карта загрузки самолета с указанием перевеса багажа
 //и информации о снятом с рейса багаже.
 
@@ -18,10 +20,17 @@ namespace Lab3
     {
         static void Main(string[] args)
         {
-            Plane plane = new Plane();
-            plane.InitPlane();
-            Console.WriteLine(plane.GetWeight());
-            plane.PrintWeightInfo();
+            while (Console.ReadLine() != "e")
+            {
+                Console.Clear();
+                Console.WriteLine(Schemes.Intro);
+                Plane plane = new Plane();
+                plane.InitPlane();
+                Console.WriteLine(plane.GetWeight());
+                plane.PrintWeightInfo();
+                plane.StartFlight();
+            }
+
         }
     }
 }

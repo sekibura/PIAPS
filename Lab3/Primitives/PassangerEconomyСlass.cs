@@ -29,8 +29,18 @@ namespace Lab3.Primitives
             throw new NotImplementedException();
         }
 
-        public void RemoveBaggage()
+        public void RemoveBaggage(float value)
         {
+
+           // Console.WriteLine(GetWeight()+" - "+ value);
+            if (value > 0)
+            {
+                if (baggageWeight - value >= 0)
+                    baggageWeight -= value;
+                else if (baggageWeight > 0)
+                    baggageWeight = 0;
+            }
+            //Console.WriteLine("= "+GetWeight());
 
         }
     }

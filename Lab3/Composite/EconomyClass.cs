@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Lab3.Primitives;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -31,6 +32,30 @@ namespace Lab3.Composite
         public int GetMaxNumOfPassengers()
         {
             return maxNumOfPassengers;
+        }
+
+        public void RemoveOverload(float value)
+        {
+           // Console.WriteLine(GetWeight());
+            List<IFlyableUnit> pasWithBag = passangers.FindAll(pas => pas.GetWeight() > 0);
+            float deltaWeight =  value / pasWithBag.Count;
+            float removedWeight = 0;
+
+            for (int i = 0; i < pasWithBag.Count; i++)
+            {   if (pasWithBag[i].GetWeight() > deltaWeight)
+                    removedWeight += deltaWeight;
+                else
+                    removedWeight += pasWithBag[i].GetWeight();
+                ((PassangerEconomyСlass)pasWithBag[i]).RemoveBaggage(deltaWeight);
+            }
+
+            if (removedWeight < value)
+            {
+                RemoveOverload(value - removedWeight);
+            }
+
+            //Console.WriteLine(GetWeight());
+            Console.WriteLine(" REMOVE OVERLOAD");
         }
     }
 }

@@ -8,11 +8,13 @@ namespace Lab3
 {
     class Plane : IFlyableUnit
     {
-        private List<IFlyableUnit> onBoardMember;
+        private List<IFlyableUnit> _onBoardMember;
+        private float _maxWeight = 2500f;
+        private WeightCard _weightCard = new WeightCard();
 
         public void InitPlane()
         {
-            onBoardMember = new List<IFlyableUnit>();
+            _onBoardMember = new List<IFlyableUnit>();
             addPilots();
             addStewardess();
 
@@ -23,13 +25,13 @@ namespace Lab3
 
         public void AddUnit(IFlyableUnit unit)
         {
-            onBoardMember.Add(unit);
+            _onBoardMember.Add(unit);
         }
 
         public float GetWeight()
         {
             float weight = 0f;
-            foreach (var member in onBoardMember)
+            foreach (var member in _onBoardMember)
             {
                 weight += member.GetWeight();
             }
@@ -88,14 +90,46 @@ namespace Lab3
 
         public void StartFlight()
         {
-
+            if (_weightCard.GetSummaryWeight() > _maxWeight)
+            {
+                //TODO 
+                //FIX OVERLOAD
+                EconomyClass economyClass = (EconomyClass)_onBoardMember.Find(item => item is EconomyClass);
+                economyClass.RemoveOverload(_weightCard.GetSummaryWeight()-_maxWeight);
+                PrintWeightInfo();
+            }
+            Console.WriteLine("Start Flight");
         }
         public void PrintWeightInfo()
         {
-            foreach (var member in onBoardMember)
+ 
+            foreach (var member in _onBoardMember)
             {
-                Console.WriteLine(member.ToString() + " - " + member.GetWeight());
+                Console.WriteLine(member.GetType()+ " - " + member.GetWeight());
+                Console.WriteLine(member is Pilot);
+                switch (member)
+                {
+                    case Pilot p:
+                        _weightCard.PilotWeight = member.GetWeight();
+                        break;
+                    case Stewardess p:
+                        _weightCard.StewardessWeight = member.GetWeight();
+                        break;
+                    case FirstClass p:
+                        _weightCard.FirstClassWeight = member.GetWeight();
+                        break;
+                    case BussinessClass p:
+                        _weightCard.BusinessClassWeight = member.GetWeight();
+                        break;
+                    case EconomyClass p:
+                        _weightCard.EconomyClassWeight = member.GetWeight();
+                        break;
+                }
             }
+
+            Console.WriteLine(Schemes.WeightScheme(_weightCard));
         }
+
+
     }
 }
