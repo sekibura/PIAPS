@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Text;
 
 namespace Lab5Interpretator.Expressions
@@ -17,10 +18,19 @@ namespace Lab5Interpretator.Expressions
 
         public string intepret()
         {
-            if (rightValue.intepret().EndsWith("\n"))
-                return rightValue.intepret() + leftValue.intepret();
+            string s = leftValue.intepret();
+            //Debug.WriteLine(value.Equals("\r\n"));
+            if (leftValue.intepret().EndsWith("\n"))
+            {
+                //Debug.WriteLine("yes");
+                return leftValue.intepret() + rightValue.intepret();
+            }
             else
-                return rightValue.intepret() + "\n" + leftValue.intepret();
+            {
+               // Debug.WriteLine("no");
+                return leftValue.intepret() + "\r\n" + rightValue.intepret();
+            }
+                
         }
         
     }

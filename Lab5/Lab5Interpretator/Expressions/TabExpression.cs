@@ -17,10 +17,10 @@ namespace Lab5Interpretator.Expressions
 
         public string intepret()
         {
-            if (rightValue.intepret().EndsWith("\t"))
-                return rightValue.intepret() + leftValue.intepret();
+            if (leftValue.intepret().EndsWith(" "))
+                return leftValue.intepret() + rightValue.intepret();
             else
-                return rightValue.intepret() + "\t" + leftValue.intepret();
+                return leftValue.intepret() + " " + rightValue.intepret();
         }
     }
 }

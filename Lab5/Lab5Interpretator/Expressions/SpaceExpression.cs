@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Text;
 
 namespace Lab5Interpretator.Expressions
@@ -8,7 +9,7 @@ namespace Lab5Interpretator.Expressions
     {
         IExpression rightValue;
         IExpression leftValue;
-        public SpaceExpression(IExpression rightValue, IExpression leftValue)
+        public SpaceExpression(IExpression leftValue , IExpression rightValue)
         {
             this.rightValue = rightValue;
             this.leftValue = leftValue;
@@ -16,11 +17,12 @@ namespace Lab5Interpretator.Expressions
         }
 
         public string intepret()
-        { 
-            if(rightValue.intepret().EndsWith(" "))
-                return rightValue.intepret()+leftValue.intepret();
+        {
+            //Debug.WriteLine("space");
+            if(leftValue.intepret().EndsWith(" "))
+                return leftValue.intepret()+rightValue.intepret();
             else
-                return rightValue.intepret() + " " + leftValue.intepret();
+                return leftValue.intepret() + " " + rightValue.intepret();
         }   
 
 

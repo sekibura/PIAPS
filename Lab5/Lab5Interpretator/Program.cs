@@ -18,7 +18,7 @@ namespace Lab5Interpretator
 
 
             Context context = new Context();
-            IExpression expr = context.Evaluate("as a  a");
+            IExpression expr = context.Evaluate("a j");
             string tb2 = expr.intepret();
             Debug.WriteLine(tb2);
 
